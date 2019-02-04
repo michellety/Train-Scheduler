@@ -6,14 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedule</title>
     <!-- Firebase Reference -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     
     <!-- Link to jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Link to Moment.js -->
-
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <!--Link to css style-->
@@ -21,7 +19,6 @@
     
     <!-- Link to Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -55,22 +52,22 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Train Name</label>
-                            <textarea class="form-control" id="trainName" rows="1"></textarea>
+                            <textarea class="form-control" id="trainName" placeholder="Name of locomotive"rows="1"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Destination</label>
-                            <textarea class="form-control" id="destination" rows="1"></textarea>
+                            <textarea class="form-control" id="destination" placeholder="Where to?"rows="1"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">First Train Time</label>
-                            <textarea class="form-control" placeholder="HH:mm military time" id="trainTime" rows="1"></textarea>
+                            <textarea class="form-control" placeholder="HH:mm (military time)" id="trainTime" rows="1"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Frequency (minutes)</label>
-                            <textarea class="form-control" id="frequency" rows="1"></textarea>
+                            <label for="exampleFormControlTextarea1">Frequency</label>
+                            <textarea class="form-control" id="frequency" placeholder="__ minutes"rows="1"></textarea>
                         </div>
 
                         <button id = "submit" type="submit" class="btn btn-secondary">Submit</button>

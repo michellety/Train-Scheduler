@@ -38,25 +38,19 @@ $("#submit").on("click", function(event){
     });
     // console.log(database);
 
-    
-    //create the table with the information
-   
-    var $row = $("<tr>");
-    $row.append("<td>" + trainName + "</td>");
-    $row.append("<td>" + destination + "</td>");
-    // $row.append("<td>" + trainTime + "</td>");
-    $row.append("<td>" + frequency + "</td>");
-    $row.append("<td>" + nextArrival + "</td>");
-    $row.append("<td>" + minsAway + "</td>");
+     //clear the text boxes to prepare for the next entry
+     $("#trainName").val("");
+     $("#destination").val("");
+     $("#frequency").val("");
+     $("#trainTime").val("");
 
-    // append the table rows to the tbody
-    $("tbody").append($row);
 });
 
     //read a snapshot from the database
     //activated with a new addition submitted by the user
     database.ref().on("child_added", function(snapshot){
         // console.log(snapshot.val());
+        //store the values at the current moment in a variable 
         var value = snapshot.val();
         var trainName = value.trainName;
         var destination = value.destination; 
@@ -68,34 +62,29 @@ $("#submit").on("click", function(event){
         // console.log("firstTrainTime" + trainTime);
         // console.log("frequency" + frequency);
 
+
     //calculate next arrival and minutes away using moment.js
 
-    //define the current time, and format to 24 hour military time 
-    // var currentTime = moment().format("HH:mm");
-
-    //subtract a year from the first train time so it is earlier than the current
+    //subtract a year from the first train time, 24 hr format, so it is earlier than the current
     var editedTime = moment(trainTime, "HH:mm").subtract(1, "years");
     
-    //calculate the difference between the first train time entered, and the current time  
+    //calculate the difference in minutes between the first train time entered, and the current time  
     var timeDifference = moment().diff(moment(editedTime), "minutes");
 
     //calculate the remainder by the frequency
     var timeRemainder = timeDifference % frequency;
 
-    //calculate minutess away by subtracting the remainder from how often the tain arrives
+    //calculate minutess away by subtracting the remainder from how often the train arrives
     var minsAway = frequency - timeRemainder;
 
     //calculate the next arrival by adding minutes away to the current time
     var nextArrival = moment().add(minsAway, "minutes").format("HH:mm");
-
 
     // create a table with these additions when there are new submissions
     var $row = $("<tr>");
     $row.append("<td>" + trainName + "</td>");
     $row.append("<td>" + destination + "</td>");
     $row.append("<td>" + frequency + "</td>");
-    // $row.append("<td>" + trainTime + "</td>");
-    
     $row.append("<td>" + nextArrival + "</td>");
     $row.append("<td>" + minsAway + "</td>");
     
