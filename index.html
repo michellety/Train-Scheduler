@@ -14,19 +14,22 @@
 
     <!-- Link to Moment.js -->
 
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
+    <!--Link to css style-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
     <!-- Link to Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container">
-        <div class="jumbotron text-center" >Don't Be Late!</div>
+        <div id= "heading" class="jumbotron text-center">Plan Your Trip!</div>
             <div class="card">
-                <div class="card-header">Train Schedule</div>
+                <div id= "card-head" class="card-header bg-secondary">Train Schedule</div>
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
@@ -40,14 +43,14 @@
                             </thead>
 
                             <tbody></tbody>
-                            
+
                         </table>
                     </div>
             </div>
         <br>
         <br>
             <div class="card">
-                <div class="card-header">Add more trains here</div>
+                <div id= "card-head" class="card-header bg-secondary">Add more trains here</div>
                     <div class="card-body">
                     <form>
                         <div class="form-group">
@@ -70,15 +73,13 @@
                             <textarea class="form-control" id="frequency" rows="1"></textarea>
                         </div>
 
-                        <button id = "submit" type="submit" class="btn btn-primary">Submit</button>
+                        <button id = "submit" type="submit" class="btn btn-secondary">Submit</button>
                     
                     </form>
                     </div>
                 </div>
     </div>
     
-
- 
  <!-- Script -->
  <script src="assets/javascript/train.js"></script>   
     
